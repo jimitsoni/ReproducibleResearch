@@ -29,9 +29,10 @@ stepsByDay <- tapply(activityData$steps, activityData$date, sum, na.rm=TRUE)
 
 ```r
 qplot(stepsByDay, xlab='Total steps per day', ylab='Frequency using binwith 500', binwidth=500)
+## Saving to file
+dev.copy(png, file="plot1.png", height=480, width=480)
+dev.off()
 ```
-
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 ##### 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -57,9 +58,11 @@ ggplot(data=averageStepsPerTimeBlock, aes(x=interval, y=meanSteps)) +
     geom_line() +
     xlab("5-minute interval") +
     ylab("average number of steps taken") 
+    ## Saving to file
+dev.copy(png, file="plot2.png", height=480, width=480)
+dev.off()
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 ##### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 ```r
@@ -95,6 +98,9 @@ activityDataImputed$steps <- impute(activityData$steps, fun=mean)
 ```r
 stepsByDayImputed <- tapply(activityDataImputed$steps, activityDataImputed$date, sum)
 qplot(stepsByDayImputed, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
+dev.copy(png, file="plot3.png", height=480, width=480)
+dev.off()
+
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
@@ -129,6 +135,8 @@ ggplot(averagedActivityDataImputed, aes(interval, steps)) +
     facet_grid(dateType ~ .) +
     xlab("5-minute interval") + 
     ylab("avarage number of steps")
+    
+    dev.copy(png, file="plot4.png", height=480, width=480)
+dev.off()
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png) 
