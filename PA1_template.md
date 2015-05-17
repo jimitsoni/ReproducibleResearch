@@ -34,7 +34,10 @@ dev.copy(png, file="plot1.png", height=480, width=480)
 dev.off()
 ```
 
-##### 2. Calculate and report the mean and median total number of steps taken per day
+![plot1](plot1.png) 
+
+##### 2. 
+Calculate and report the mean and median total number of steps taken per day
 
 ```r
 stepsByDayMean <- mean(stepsByDay)
@@ -62,6 +65,7 @@ ggplot(data=averageStepsPerTimeBlock, aes(x=interval, y=meanSteps)) +
 dev.copy(png, file="plot2.png", height=480, width=480)
 dev.off()
 ```
+![plot2](plot2.png)
 
 ##### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -100,10 +104,9 @@ stepsByDayImputed <- tapply(activityDataImputed$steps, activityDataImputed$date,
 qplot(stepsByDayImputed, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
 dev.copy(png, file="plot3.png", height=480, width=480)
 dev.off()
-
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
+![plot3](plot3.png)
 
 ##### ... and Calculate and report the mean and median total number of steps taken per day. 
 
@@ -139,4 +142,5 @@ ggplot(averagedActivityDataImputed, aes(interval, steps)) +
     dev.copy(png, file="plot4.png", height=480, width=480)
 dev.off()
 ```
+![plot4](plot4.png)
 
